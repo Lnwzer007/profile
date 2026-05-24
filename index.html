@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>6767</title>
-    <!-- Tailwind CSS v3 via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -18,7 +16,6 @@
             overflow: hidden;
         }
 
-        /* หน้าแรกก่อนคลิกเข้าเว็บ (Enter Screen) */
         #enter-screen {
             position: fixed;
             inset: 0;
@@ -27,7 +24,6 @@
             transition: all 1s cubic-bezier(0.85, 0, 0.15, 1);
         }
 
-        /* ปุ่มคลิกแบบมินิมอล มีเส้นขีดล่างล้ำๆ */
         .enter-text {
             color: #e4e4e7;
             font-family: monospace;
@@ -72,7 +68,6 @@
             pointer-events: none;
         }
 
-        /* เอฟเฟกต์กลุ่มก้อนแสงเทไล่เฉดสีเบื้องหลัง (Dynamic Gradient Orbs) */
         .bg-glow-1, .bg-glow-2, .bg-glow-3 {
             position: absolute;
             border-radius: 50%;
@@ -119,7 +114,6 @@
             100% { transform: translate(-10vw, 10vh) scale(0.9); }
         }
 
-        /* การ์ดสไตล์กระจกฝ้าแบบเรียบหรูระดับพรีเมียม (Professional Glassmorphism) */
         .bio-card {
             background: rgba(10, 10, 12, 0.5);
             backdrop-filter: blur(24px);
@@ -128,7 +122,6 @@
             box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
         }
 
-        /* ปุ่มลิงก์แบบสมูทและเงางามเวลากด */
         .glow-hover {
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(255, 255, 255, 0.03);
@@ -141,7 +134,6 @@
             transform: translateY(-2px);
         }
 
-        /* ซ่อนองค์ประกอบชั่วคราว */
         .hidden-element {
             opacity: 0;
             transform: scale(0.95);
@@ -151,7 +143,6 @@
 </head>
 <body class="flex items-center justify-center min-h-screen text-zinc-300 antialiased p-4 relative select-none">
 
-    <!-- 1. หน้าต่างคลิกก่อนเข้าเว็บ (Enter Screen) -->
     <div id="enter-screen" class="flex items-center justify-center">
         <div class="text-center">
             <p class="enter-text text-xs md:text-sm font-bold" onclick="enterSite()">
@@ -160,47 +151,37 @@
         </div>
     </div>
 
-    <!-- Canvas วาดเอฟเฟกต์หิมะตก -->
     <canvas id="snow-canvas"></canvas>
 
-    <!-- กลุ่มก้อนแสงเทไล่เฉดสีด้านหลัง -->
     <div class="bg-glow-1"></div>
     <div class="bg-glow-2"></div>
     <div class="bg-glow-3"></div>
     
-    <!-- มินิมอลลายตาราง Grid บางเฉียบ -->
     <div class="absolute inset-0 bg-[linear-gradient(to_right,#ffffff01_1px,transparent_1px),linear-gradient(to_bottom,#ffffff01_1px,transparent_1px)] bg-[size:60px_60px] pointer-events-none z-0"></div>
 
-    <!-- ปุ่มเปิด/ปิดเสียง (มุมขวาบน) - จะแสดงหลังกดคลิกเข้าเว็บ -->
     <button id="mute-btn" onclick="toggleMute()" class="absolute top-6 right-6 z-30 bg-black/40 hover:bg-white/10 text-white/70 hover:text-white border border-white/5 p-3 rounded-full backdrop-blur-md transition-all duration-300 opacity-0 pointer-events-none">
         <i id="mute-icon" class="fa-solid fa-volume-high text-sm w-4 h-4 flex items-center justify-center"></i>
     </button>
 
-    <!-- 2. การ์ดเนื้อหาเว็บหลัก (Main Card) -->
     <div class="bio-card w-full max-w-md rounded-2xl p-8 text-center z-10 transform transition-all duration-[1200ms] opacity-0 scale-90 translate-y-8" id="main-card">
         
-        <!-- Avatar ทรงกลมพร้อมวงแหวนเรืองแสงจางๆ -->
         <div class="relative w-24 h-24 mx-auto mb-6">
             <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-indigo-500 to-cyan-500 opacity-20 blur-md animate-pulse"></div>
             <img src="patrick-drooling-patrick-star.png" alt="Patrick GIF" class="relative rounded-full border border-white/10 bg-zinc-950 p-1 object-cover w-full h-full z-10">
             <div class="absolute bottom-1 right-1 w-4 h-4 bg-emerald-500 rounded-full border-2 border-zinc-900 z-20"></div>
         </div>
 
-        <!-- ชื่อและสัญลักษณ์ Verified -->
         <h1 class="text-2xl font-semibold tracking-tight text-white flex items-center justify-center gap-2">
             Oat@YingDIS <i class="fa-solid fa-circle-check text-indigo-400 text-sm" title="Verified Professional"></i>
         </h1>
         
-        <!-- รายละเอียดประวัติ (Console Style แบบเนียนตา) -->
         <p class="text-xs text-zinc-400 mt-2 mb-6 font-mono bg-black/30 py-2 px-4 rounded-lg inline-block border border-white/5">
             <span class="text-indigo-400">$</span> whoami: <span class="text-zinc-300">security & automation</span>
         </p>
 
         <hr class="border-white/5 my-5">
 
-        <!-- กล่องรวมปุ่มลิงก์โซเชียลต่างๆ -->
         <div class="space-y-3">
-            <!-- Discord -->
             <a href="https://discord.gg/VPa6CHVq" target="_blank" class="glow-hover flex items-center justify-between p-4 rounded-xl group">
                 <div class="flex items-center gap-3">
                     <i class="fa-brands fa-discord text-xl text-indigo-400 group-hover:scale-110 transition-transform"></i>
@@ -209,7 +190,6 @@
                 <span class="text-xs text-zinc-500 font-mono group-hover:text-zinc-300 transition-colors">676767</span>
             </a>
 
-            <!-- GitHub -->
             <a href="https://github.com/Lnwzer007" target="_blank" class="glow-hover flex items-center justify-between p-4 rounded-xl group">
                 <div class="flex items-center gap-3">
                     <i class="fa-brands fa-github text-xl text-white/80 group-hover:scale-110 transition-transform"></i>
@@ -219,7 +199,6 @@
             </a>
         </div>
 
-        <!-- ท้ายการ์ดบอก Stack เทคโนโลยี -->
         <div class="mt-8 flex justify-center gap-4 text-[11px] text-zinc-600 font-mono tracking-wider">
             <span><i class="fa-brands fa-python text-zinc-500"></i> PYTHON</span>
             <span>•</span>
@@ -227,13 +206,11 @@
         </div>
     </div>
 
-    <!-- เพลงพื้นหลัง (Background Music) -->
     <audio id="bg-music" loop>
         <source src="Music.mp3" type="audio/mpeg">
     </audio>
 
     <script>
-        // --- เอฟเฟกต์หิมะตกแบบระยิบระยับ (Canvas Snowfall) ---
         const canvas = document.getElementById('snow-canvas');
         const ctx = canvas.getContext('2d');
 
@@ -245,16 +222,16 @@
             height = canvas.height = window.innerHeight;
         });
 
-        const numFlakes = 65; // จำนวนเกล็ดหิมะบนจอ
+        const numFlakes = 65;
         const flakes = [];
 
         for (let i = 0; i < numFlakes; i++) {
             flakes.push({
                 x: Math.random() * width,
                 y: Math.random() * height,
-                r: Math.random() * 2 + 0.5, // ขนาดเม็ดหิมะเล็กๆ มินิมอล
+                r: Math.random() * 2 + 0.5,
                 d: Math.random() * numFlakes,
-                v: Math.random() * 0.5 + 0.2, // ความเร็วในการตกช้าๆ เน้นความสมูท
+                v: Math.random() * 0.5 + 0.2,
                 opacity: Math.random() * 0.6 + 0.2
             });
         }
@@ -270,11 +247,9 @@
                 ctx.moveTo(f.x, f.y);
                 ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2, true);
 
-                // คำนวณทิศทางการตกให้พริ้วไหวเบาๆ
                 f.y += f.v;
                 f.x += Math.sin(f.d) * 0.2;
 
-                // วนลูปกลับไปตกใหม่จากด้านบนเมื่อตกเลยขอบจอ
                 if (f.y > height) {
                     flakes[i] = { x: Math.random() * width, y: 0, r: f.r, d: f.d, v: f.v, opacity: f.opacity };
                 }
@@ -285,7 +260,6 @@
         drawSnow();
 
 
-        // --- ฟังก์ชันควบคุมเสียงและเข้าเว็บ ---
         const audio = document.getElementById('bg-music');
         const muteBtn = document.getElementById('mute-btn');
         const muteIcon = document.getElementById('mute-icon');
@@ -294,22 +268,18 @@
             const enterScreen = document.getElementById('enter-screen');
             const mainCard = document.getElementById('main-card');
 
-            // สไลด์หน้าแรกหายไปด้านบนแบบเนียนๆ
             enterScreen.style.opacity = '0';
             enterScreen.style.transform = 'translateY(-100vh)';
             setTimeout(() => { enterScreen.style.display = 'none'; }, 1000);
 
-            // แสดงการ์ดหลักพร้อม Motion แบบมืออาชีพ
             setTimeout(() => {
                 mainCard.classList.remove('opacity-0', 'scale-90', 'translate-y-8');
                 mainCard.classList.add('opacity-100', 'scale-100', 'translate-y-0');
                 
-                // แสดงปุ่มปิดเสียงที่มุมขวาบน
                 muteBtn.classList.remove('opacity-0', 'pointer-events-none');
                 muteBtn.classList.add('opacity-100');
             }, 300);
 
-            // สั่งเล่นเพลงอัตโนมัติ
             if (audio) {
                 audio.volume = 0.2;
                 audio.play().catch(err => console.log("Autoplay blocked: ", err));
@@ -324,7 +294,7 @@
             } else {
                 audio.muted = true;
                 muteIcon.className = "fa-solid fa-volume-xmark text-sm w-4 h-4 flex items-center justify-center";
-                muteBtn.style.borderColor = "rgba(239, 68, 68, 0.4)"; // แอบขึ้นขอบสีแดงจางๆ ตอนปิดเสียง
+                muteBtn.style.borderColor = "rgba(239, 68, 68, 0.4)"; 
             }
         }
     </script>

@@ -3,12 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>67</title>
-    <!-- Tailwind CSS v3 via CDN -->
+    <title>Premium Bio | gun.lol style</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <style>
@@ -18,7 +15,6 @@
             overflow: hidden;
         }
 
-        /* หน้าแรกก่อนคลิกเข้าเว็บ (Enter Screen) */
         #enter-screen {
             position: fixed;
             inset: 0;
@@ -27,7 +23,6 @@
             transition: all 1s cubic-bezier(0.85, 0, 0.15, 1);
         }
 
-        /* ปุ่มคลิกแบบมินิมอล มีเส้นขีดล่างล้ำๆ */
         .enter-text {
             color: #e4e4e7;
             font-family: monospace;
@@ -62,7 +57,6 @@
             50% { opacity: 1; }
         }
 
-        /* พื้นหลังเม็ดหิมะตกระยิบระยับ */
         #snow-canvas {
             position: absolute;
             inset: 0;
@@ -72,7 +66,6 @@
             pointer-events: none;
         }
 
-        /* เอฟเฟกต์กลุ่มก้อนแสงเทไล่เฉดสีเบื้องหลัง */
         .bg-glow-1, .bg-glow-2, .bg-glow-3 {
             position: absolute;
             border-radius: 50%;
@@ -119,7 +112,6 @@
             100% { transform: translate(-10vw, 10vh) scale(0.9); }
         }
 
-        /* การ์ดสไตล์กระจกฝ้าแบบเรียบหรูระดับพรีเมียม */
         .bio-card {
             background: rgba(10, 10, 12, 0.5);
             backdrop-filter: blur(24px);
@@ -128,7 +120,6 @@
             box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
         }
 
-        /* ปุ่มลิงก์แบบสมูทและเงางามเวลากด */
         .glow-hover {
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(255, 255, 255, 0.03);
@@ -144,7 +135,6 @@
 </head>
 <body class="flex items-center justify-center min-h-screen text-zinc-300 antialiased p-4 relative select-none">
 
-    <!-- 1. หน้าต่างคลิกก่อนเข้าเว็บ (Enter Screen) -->
     <div id="enter-screen" class="flex items-center justify-center">
         <div class="text-center">
             <p class="enter-text text-xs md:text-sm font-bold" onclick="enterSite()">
@@ -153,113 +143,77 @@
         </div>
     </div>
 
-    <!-- ลำโพงสำหรับ YouTube Player แบบซ่อนตัวเล่น (0x0 พิกเซล) -->
-    <div id="yt-player"></div>
+    <audio id="bg-music" loop>
+        <source src="originalREMIXby (Tanawat Pongpanjasin)tiktok.mp3" type="audio/mpeg">
+    </audio>
 
-    <!-- Canvas วาดเอฟเฟกต์หิมะตก -->
     <canvas id="snow-canvas"></canvas>
 
-    <!-- กลุ่มก้อนแสงเทไล่เฉดสีด้านหลัง -->
     <div class="bg-glow-1"></div>
     <div class="bg-glow-2"></div>
     <div class="bg-glow-3"></div>
     
-    <!-- มินิมอลลายตาราง Grid บางเฉียบ -->
     <div class="absolute inset-0 bg-[linear-gradient(to_right,#ffffff01_1px,transparent_1px),linear-gradient(to_bottom,#ffffff01_1px,transparent_1px)] bg-[size:60px_60px] pointer-events-none z-0"></div>
 
-    <!-- ปุ่มเปิด/ปิดเสียง (มุมขวาบน) - จะแสดงหลังกดคลิกเข้าเว็บ -->
     <button id="mute-btn" onclick="toggleMute()" class="absolute top-6 right-6 z-30 bg-black/40 hover:bg-white/10 text-white/70 hover:text-white border border-white/5 p-3 rounded-full backdrop-blur-md transition-all duration-300 opacity-0 pointer-events-none">
         <i id="mute-icon" class="fa-solid fa-volume-high text-sm w-4 h-4 flex items-center justify-center"></i>
     </button>
 
-    <!-- 2. การ์ดเนื้อหาเว็บหลัก (Main Card) -->
     <div class="bio-card w-full max-w-md rounded-2xl p-8 text-center z-10 transform transition-all duration-[1200ms] opacity-0 scale-90 translate-y-8" id="main-card">
         
-        <!-- Avatar ทรงกลมพร้อมวงแหวนเรืองแสงจางๆ -->
         <div class="relative w-24 h-24 mx-auto mb-6">
             <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-indigo-500 to-cyan-500 opacity-20 blur-md animate-pulse"></div>
             <img src="patrick-drooling-patrick-star.png" alt="Patrick GIF" class="relative rounded-full border border-white/10 bg-zinc-950 p-1 object-cover w-full h-full z-10">
             <div class="absolute bottom-1 right-1 w-4 h-4 bg-emerald-500 rounded-full border-2 border-zinc-900 z-20"></div>
         </div>
 
-        <!-- ชื่อและสัญลักษณ์ Verified -->
         <h1 class="text-2xl font-semibold tracking-tight text-white flex items-center justify-center gap-2">
-            User@Root <i class="fa-solid fa-circle-check text-indigo-400 text-sm" title="Verified Professional"></i>
+            P@Lnwza007 <i class="fa-solid fa-circle-check text-indigo-400 text-sm" title="Verified Professional"></i>
         </h1>
         
-        <!-- รายละเอียดประวัติ -->
         <p class="text-xs text-zinc-400 mt-2 mb-6 font-mono bg-black/30 py-2 px-4 rounded-lg inline-block border border-white/5">
             <span class="text-indigo-400">$</span> whoami: <span class="text-zinc-300">security & automation</span>
         </p>
 
         <hr class="border-white/5 my-5">
 
-        <!-- กล่องรวมปุ่มลิงก์โซเชียลต่างๆ -->
         <div class="space-y-3">
             <a href="https://discord.com" target="_blank" class="glow-hover flex items-center justify-between p-4 rounded-xl group">
                 <div class="flex items-center gap-3">
                     <i class="fa-brands fa-discord text-xl text-indigo-400 group-hover:scale-110 transition-transform"></i>
                     <span class="text-sm font-medium tracking-wide text-zinc-200">Discord</span>
                 </div>
-                <span class="text-xs text-zinc-500 font-mono group-hover:text-zinc-300 transition-colors">@your_tag</span>
+                <span class="text-xs text-zinc-500 font-mono group-hover:text-zinc-300 transition-colors">COMING SOON...</span>
             </a>
 
-            <a href="https://github.com" target="_blank" class="glow-hover flex items-center justify-between p-4 rounded-xl group">
+            <a href="https://www.instagram.com/pp.apxx/" target="_blank" class="glow-hover flex items-center justify-between p-4 rounded-xl group">
+                <div class="flex items-center gap-3">
+                    <i class="fa-brands fa-instagram text-xl text-pink-500 group-hover:scale-110 transition-transform"></i>
+                    <span class="text-sm font-medium tracking-wide text-zinc-200">Instagram</span>
+                </div>
+                <span class="text-xs text-zinc-500 font-mono group-hover:text-zinc-300 transition-colors">pp.apxx</span>
+            </a>
+
+            <a href="https://github.com/Lnwzer007" target="_blank" class="glow-hover flex items-center justify-between p-4 rounded-xl group">
                 <div class="flex items-center gap-3">
                     <i class="fa-brands fa-github text-xl text-white/80 group-hover:scale-110 transition-transform"></i>
                     <span class="text-sm font-medium tracking-wide text-zinc-200">GitHub</span>
                 </div>
-                <span class="text-xs text-zinc-500 font-mono group-hover:text-zinc-300 transition-colors">/username</span>
+                <span class="text-xs text-zinc-500 font-mono group-hover:text-zinc-300 transition-colors">Lnwzer007</span>
             </a>
         </div>
 
-        <!-- ท้ายการ์ดบอก Stack เทคโนโลยี -->
         <div class="mt-8 flex justify-center gap-4 text-[11px] text-zinc-600 font-mono tracking-wider">
             <span><i class="fa-brands fa-python text-zinc-500"></i> PYTHON</span>
             <span>•</span>
             <span><i class="fa-brands fa-linux text-zinc-500"></i> LINUX</span>
+            <span>•</span>
+            <span><i class="fa-brands fa-docker text-zinc-500"></i> DOCKER</span>
+            <span>•</span>
+            <span><i class="fa-solid fa-database text-zinc-500"></i> SQL</span>
         </div>
-    </div>
-
-    <!-- ดึงสคริปต์สตรีมมิ่งของ YouTube API มาใช้งานอย่างเป็นทางการ -->
-    <script src="https://www.youtube.com/iframe_api"></script>
 
     <script>
-        // ==========================================
-        // ⚙️ วิธีตั้งค่าเพลงจาก YOUTUBE:
-        // เอา ID ของคลิป YouTube มาใส่แทนค่า 'Dkdnl50pCFQ' ด้านล่างนี้ (มี 2 จุด)
-        // (ตัวอย่างเช่น https://www.youtube.com/watch?v=Dkdnl50pCFQ ไอดีคือ Dkdnl50pCFQ)
-        // ==========================================
-        const YT_VIDEO_ID = 'Dkdnl50pCFQ'; 
-
-        let player;
-        let isMuted = false;
-
-        // ฟังก์ชันเริ่มโหลดวิดีโอจาก YouTube API
-        function onYouTubeIframeAPIReady() {
-            player = new YT.Player('yt-player', {
-                height: '0',
-                width: '0',
-                videoId: YT_VIDEO_ID,
-                playerVars: {
-                    'autoplay': 0, // ยังไม่เล่นจนกว่าจะกด Enter
-                    'loop': 1,     // วนลูปเพลง
-                    'playlist': YT_VIDEO_ID, // จำเป็นต้องใส่ซ้ำเพื่อให้การวนลูปทำงาน
-                    'controls': 0,
-                    'disablekb': 1
-                },
-                events: {
-                    'onReady': onPlayerReady
-                }
-            });
-        }
-
-        function onPlayerReady(event) {
-            // ตั้งระดับเสียงเริ่มต้นไว้ที่ 20% (ไม่ให้ดังกระแทกหูคนเข้าเว็บ)
-            event.target.setVolume(20); 
-        }
-
-        // --- เอฟเฟกต์หิมะตกแบบระยิบระยับ (Canvas Snowfall) ---
         const canvas = document.getElementById('snow-canvas');
         const ctx = canvas.getContext('2d');
         let width = canvas.width = window.innerWidth;
@@ -302,7 +256,7 @@
         }
         drawSnow();
 
-        // --- ฟังก์ชันควบคุมเสียงและเข้าเว็บ ---
+        const audio = document.getElementById('bg-music');
         const muteBtn = document.getElementById('mute-btn');
         const muteIcon = document.getElementById('mute-icon');
 
@@ -322,23 +276,21 @@
                 muteBtn.classList.add('opacity-100');
             }, 300);
 
-            // สั่งให้วิดีโอ YouTube เล่นเพลงทันที
-            if (player && typeof player.playVideo === 'function') {
-                player.playVideo();
+            if (audio) {
+                audio.volume = 0.25;
+                audio.play().catch(err => console.log(err));
             }
         }
 
         function toggleMute() {
-            if (!player || typeof player.mute !== 'function') return;
+            if (!audio) return;
 
-            if (isMuted) {
-                player.unMute();
-                isMuted = false;
+            if (audio.muted) {
+                audio.muted = false;
                 muteIcon.className = "fa-solid fa-volume-high text-sm w-4 h-4 flex items-center justify-center";
                 muteBtn.style.borderColor = "rgba(255, 255, 255, 0.05)";
             } else {
-                player.mute();
-                isMuted = true;
+                audio.muted = true;
                 muteIcon.className = "fa-solid fa-volume-xmark text-sm w-4 h-4 flex items-center justify-center";
                 muteBtn.style.borderColor = "rgba(239, 68, 68, 0.4)"; 
             }
